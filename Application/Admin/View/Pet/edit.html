@@ -1,0 +1,53 @@
+<include file="Public:header"/>
+
+    <div class="container-fluid">
+        
+        <div class="row-fluid">
+            <include file="Public:left"/>
+        <div class="span9">
+            <h1 class="page-title">修改宠物课堂</h1>
+<div class="btn-toolbar">
+    
+  <div class="btn-group">
+  </div>
+</div>
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#" data-toggle="tab">编辑</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="home">
+          <form id="subform" enctype="multipart/form-data" action="{:U('Admin/Pet/edit_do',array('id'=>$result['id']))}" method="post">
+              <label>名称：</label>
+              <input type="text" value="{$result['title']}" name='title'/>
+              <label>图片：</label>
+              <img alt="" width="80" src="Public/Uploads/{$result.img}">
+              <input type="file" name="img" id="img" >
+              <label>宠物外形特征：</label>
+              <textarea style="margin: 0px 0px 10px; width: 672px; height: 152px;" name='num' >{$result['num']}</textarea>
+              <label>宠物饲养方法：</label>
+              <textarea style="margin: 0px 0px 10px; width: 672px; height: 152px;" name='content'>{$result['content']}</textarea>
+
+              <label></label>
+              <button class="btn btn-primary" onclick="document.getElementById('subform').submit();return false">
+                  <i class="icon-save"></i> 编辑</button>
+          </form>
+      </div>
+  </div>
+
+</div>
+
+        </div>
+    </div>
+    
+
+    <footer>
+        <hr>
+        <p>&copy; 2018 Online Media Organizor</a></p>
+    </footer>
+ 
+
+  </body>
+</html>
+
+

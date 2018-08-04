@@ -1,0 +1,63 @@
+<include file="Public/_header" />
+<link rel="stylesheet" href="Public/index/stylesheets/blog.css">
+<style>
+	.pagination li{
+		width: 10px;
+		float: left;
+		margin-left: 25px;
+	}
+
+</style>
+<script>
+	function subForm()
+	{
+		$("#form1").submit();
+	}
+</script>
+
+
+<section>
+	<div class="mid_container">
+		<div class="blog_main">
+			<div class="blog_lft lft">
+
+				<volist name="result" id="vo">
+					<div class="post_main lft">
+						<div class="post lft">
+							<h3>{$vo.title}</h3>
+							<span class="common_bg lft">{$vo['ctime']|date="Y-m-d",###}</span>
+						</div>
+						<div class="post_cont lft">
+							<img src="Public/Uploads/{$vo.img}" width="100%" alt=""></br>
+							<h4>名称：</h4>{$vo['title']}<br><span><br><h4>宠物外形特征：</h4>{$vo['num']}</span>
+							<br><span><br><h4>宠物饲养方法：</h4>{$vo['varieties']}</span>
+
+							<php>
+								echo htmlspecialchars_decode($vo['content']);
+							</php>
+						</div>
+					</div>
+				</volist>
+				<div class="wrapper lft">
+					{$pagehtml}
+				</div>
+			</div>
+			<div class="blog_rgt rgt">
+				<div class="rgt_box lft">
+					<div class="search lft">
+						<form method="post" id="form1" action="{:U('Index/Pet/index')}">
+							<div class="searchtxt lft"><input type="text" id="title" name="title" value="{$title}" /></div>
+							<div class="go lft"><a href="javascript:;" onclick="subForm();">Go</a></div>
+						</form>
+					</div>
+				</div>
+
+			</div><div class="clear"></div>
+		</div>
+		<div class="top_btn rgt"><a class="backtop" href="#">Back to Top</a></div><div class="clear"></div>
+	</div>
+</section>
+
+
+
+<include file="Public/_footer" />

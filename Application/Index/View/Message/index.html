@@ -1,0 +1,95 @@
+<include file="Public/_header" />
+<link rel="stylesheet" href="Public/index/stylesheets/blog.css">
+<style>
+    .pagination li{
+        width: 10px;
+        float: left;
+        margin-left: 25px;
+    }
+</style>
+<script>
+    function subForm()
+    {
+        $("#form1").submit();
+    }
+</script>
+
+<section>
+    <div class="mid_container">
+        <div class="blog_main">
+            <div class="blog_lft lft">
+
+                <volist name="result" id="vo">
+                <div class="post_main lft">
+                    <div class="post lft">
+                        <a href="{:U("Index/Message/info",array('id'=>$vo['id']))}">
+                        <h3>{$vo.title}</h3>
+                        </a>
+                        <span class="common_bg lft">{$vo['ctime']|date="Y-m-d",###}</span>
+                        <span class="common_bg  lft">评论数：{$vo.comment_num|default=0}</span>
+
+                    </div>
+                    <div class="post_cont lft">
+                        <a href="{:U("Index/Message/info",array('id'=>$vo['id']))}">
+                        <img src="Public/Uploads/{$vo.img}" width="100%" alt=""></a><br>
+                        <span> 简介:{$vo['info']}</span>
+                        <br><p><span class="readmore lft"><a href="{:U("Index/Message/info",array('id'=>$vo['id']))}">更多...</a></span></p>
+
+                    </div>
+                </div>
+                </volist>
+                <div class="wrapper lft">
+                    {$pagehtml}
+                </div>
+            </div>
+            <div class="blog_rgt rgt">
+                <div class="rgt_box lft">
+                    <div class="search lft">
+                        <form method="post" id="form1" action="{:U('Index/Message/index')}">
+                        <div class="searchtxt lft"><input type="text" id="title" name="title" value="{$title}" /></div>
+                        <div class="go lft"><a href="javascript:;" onclick="subForm();">Go</a></div>
+                            </form>
+                    </div>
+                </div>
+
+                <div class="rgt_box abouttxt lft">
+
+                    <div class="clear"></div>
+                    <h4><p>如果你需要分享宠物趣事和询问一些问题请单击：</p></h4>
+                    <li class="last lft"><input type="submit" onclick="window.location.href='{:U("Index/Message/add")}'" value="添加" class="submit_btn" /></li>
+                </div>
+
+                <div class="rgt_box abouttxt lft">
+                    <h4>分类信息</h4>
+                    <ul class="list">
+                        <volist name="g_category" id="vo">
+                            <li >
+                                <h4>
+                                    <a href="{:U('Index/Message/index',array('category_id'=>$vo['id']))}">{$vo.title}
+                                    </a>
+                                </h4>
+                            </li>
+                        </volist>
+
+
+                    </ul>
+                </div>
+                <div class="rgt_box abouttxt lft">
+                    <h4>评论最多的分享</h4>
+                    <ul class="list">
+                        <volist name="message_coment" id="vo">
+                            <li><a href="{:U("Index/Message/info",array('id'=>$vo['id']))}">{$vo.title}</a>
+                                <span>({$vo.comment_num})</span></li>
+                        </volist>
+
+                    </ul>
+                </div>
+
+            </div><div class="clear"></div>
+        </div>
+        <div class="top_btn rgt"><a class="backtop" href="#">Back to Top</a></div><div class="clear"></div>
+    </div>
+</section>
+
+
+<include file="Public/_footer" />

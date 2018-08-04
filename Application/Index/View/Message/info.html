@@ -1,0 +1,105 @@
+<include file="Public/_header" />
+
+
+<section>
+    <div class="mid_container">
+        <div class="blog_main">
+            <div class="blog_lft lft">
+                <div class="post_main lft">
+                    <div class="post lft">
+                        <a href="{:U("Index/Message/info",array('id'=>$result['id']))}">
+                        <h3>{$title}</h3>
+                        </a>
+                        <span class="common_bg lft">{$result['ctime']|date="Y-m-d",###}</span>
+                        <span class="common_bg  lft">评论数：{$result.comment_num|default=0}</span>
+                    </div>
+                    <div class="post_cont lft">
+                        <img width="100%" src="Public/Uploads/{$result['img']}">
+                        <php>
+                            echo htmlspecialchars_decode($result['content']);
+                        </php>
+                    </div>
+
+                    <div class="comments_main lft">
+                        <span class="comments_hd">{$result.comment_num|default=0} 评论</span>
+
+                        <volist name="comment" id="vo">
+
+                        <div class="comments1 lft">
+                            <div class="comments1_lft lft">
+                                <img src="Public/Uploads/{$vo.user.img}" width="82" height="82" alt="" />
+                            </div>
+                            <div class="comments1_rgt lft">
+                                <div class="date_hd">
+                                    <span class="lft">{$vo.user.name}<br />
+
+                                        <span class="datelink">{$vo['ctime']|date="Y-m-d H:i:s",###}</span></span>
+                                    <span class="rgt"><a href="#" class="replylnk"></a></span><div class="clear"></div>
+                                </div>
+                                    <php>
+                                        echo htmlspecialchars_decode($vo['content']);
+                                    </php>
+                            </div>
+                        </div>
+                        </volist>
+
+
+                    <div class="clear"></div>
+                    </div>
+                    <div class="contact_contlft lft">
+                        <span class="leavecomments lft">请发出你的评论</span><div class="clear"></div>
+                        <ul class="contact">
+                            <form action="{:U('Index/Message/comment')}" method="post">
+                            <li class="lft"><label>评论内容</label><br />
+                                <textarea id="content" name="content" class="txtarea"></textarea></li>
+                                <input type="hidden" name="id" value="{$result.id}">
+                            <li class="last rgt"><input type="submit" value="留下你的脚印" class="submit_btn" /></li>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="blog_rgt rgt">
+                <div class="rgt_box lft">
+                    <div class="search lft">
+                        <form method="post" id="form1" action="{:U('Index/Message/index')}">
+                            <div class="searchtxt lft"><input type="text" id="title" name="title" value="{$title}" /></div>
+                            <div class="go lft"><a href="javascript:;" onclick="subForm();">Go</a></div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="rgt_box abouttxt lft">
+                    <h4>分类信息</h4>
+                    <ul class="list">
+                        <volist name="g_category" id="vo">
+                            <li >
+                                <h4>
+                                    <a href="{:U('Index/Message/index',array('category_id'=>$vo['id']))}">{$vo.title}
+                                    </a>
+                                </h4>
+                            </li>
+                        </volist>
+
+
+                    </ul>
+                </div>
+                <div class="rgt_box abouttxt lft">
+                    <h4>评论最多的趣事</h4>
+                    <ul class="list">
+                        <volist name="message_coment" id="vo">
+                            <li><a href="{:U("Index/Message/info",array('id'=>$vo['id']))}">{$vo.title}</a>
+                                <span>({$vo.comment_num})</span></li>
+                        </volist>
+
+                    </ul>
+                </div>
+            </div><div class="clear"></div>
+        </div>
+        <div class="top_btn rgt"><a class="backtop" href="#">Back to Top</a></div><div class="clear"></div>
+    </div>
+</section>
+
+
+
+<include file="Public/_footer" />

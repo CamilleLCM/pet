@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>爱心宠物网站</title>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="Public/index/css/style.css" />
+    <link href="Public/index/css/thickbox.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Public/index/scripts/jquery.js"></script>
+    <script type="text/javascript" src="Public/index/scripts/thickbox.js"></script>
+    <script type="text/javascript" src="Public/index/scripts/scripts.js"></script>
+</head>
+<body>
+<header>
+    <div class="header_main">
+        <div class="logo lft">
+            <figure><img src="Public/index/images/logo_text.png" width="213" height="105" alt="Grab Tasty &amp; Quality" title="Grab Tasty &amp; Quality" /></figure>
+        </div>
+        <div class="header_rgt rgt">
+            <div class="makereservation rgt"><h5><a href="{:U("Index/Index/index")}">爱心<br />宠物网站</a></h5></div>
+            <nav>
+                <ul id="navmenu-h">
+                    <li><a href="{:U("Index/Index/index")}">首页</a>
+                    </li>
+                    <li><a href="{:U("Index/Guanyu/index")}">关于我们</a>
+                        <ul>
+                            <li><a href="{:U("Index/Guanyu/index")}">关于我们</a></li>
+                            <li><a href="{:U("Index/Yijian/index")}">意见建议</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{:U("Index/Department/index")}">萌宠认领</a>
+
+                    </li>
+                    <li><a href="{:U("Index/Pet/index")}">萌宠课堂</a>
+                    </li>
+                    <li><a href="{:U("Index/Message/index")}">趣事和知道</a>
+
+                        <ul>
+                            <volist name="g_category" id="vo">
+                                <li>
+                                    <a href="{:U('Index/Message/index',array('category_id'=>$vo['id']))}">
+                                        {$vo.title}
+                                    </a>
+                                </li>
+                            </volist>
+                        </ul>
+                    </li>
+
+                    <li><a href="{:U("Index/Authority/index")}">个人中心</a></li>
+                </ul>
+            </nav>
+        </div><div class="clear"></div>
+    </div>
+</header>

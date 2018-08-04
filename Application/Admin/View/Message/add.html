@@ -1,0 +1,57 @@
+<include file="Public:header"/>
+
+    <div class="container-fluid">
+        
+        <div class="row-fluid">
+            <include file="Public:left"/>
+        <div class="span9">
+            <h1 class="page-title">添加知道或趣事</h1>
+<div class="btn-toolbar">
+    
+  <div class="btn-group">
+  </div>
+</div>
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#" data-toggle="tab">添加</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="home">
+    <form id="subform" enctype="multipart/form-data" action="{:U('Admin/Message/add_do')}" method="post">
+        <label>标题：</label>
+        <input type="text" value="" name='title'/>
+        <label>图片：</label>
+        <input type="file" name="img" id="img" >
+        <label>分类：</label>
+        <select name="category_id" id="category_id">
+            <volist name="category" id="vo">
+                <option value="{$vo.id}" <php>if($result['category_id']==$vo['id']){</php>
+                selected="selected"  <php>}</php> >{$vo.title}</option>
+
+            </volist>
+
+        </select>
+        <label>具体描述：</label>
+        <textarea style="margin: 0px 0px 10px; width: 653px; height: 107px;" name="content"></textarea>
+
+       <label></label>
+      <button class="btn btn-primary" onclick="document.getElementById('subform').submit();return false"><i class="icon-save"></i> 添加</button>
+    </form>
+      </div>
+  </div>
+
+</div>
+
+        </div>
+    </div>
+    
+
+    <footer>
+        <hr>
+        <p>&copy; 2018 Online Media Organizor</a></p>
+    </footer>
+
+  </body>
+</html>
+
+

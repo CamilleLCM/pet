@@ -1,0 +1,56 @@
+<include file="Public/_header" />
+<section>
+    <div class="slider_container">
+        <div class="slider">
+            <div id="slide-holder">
+                <div id="slide-runner">
+
+                    <volist name="banner" id="vo">
+                    <div class="lft"><a href="#">
+                        <img id="slide-img-{$vo['id']}" src="Public/Uploads/{$vo['img']}" width="980" height="420" class="slide" alt="" />
+                    </a></div>
+                    </volist>
+                </div>
+                <div id="slide-controls"><p id="slide-nav"></p></div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="grab_details">
+            <div class="grab_details_ins">
+                <h2 class="txt-cnt">爱心宠物网站</h2>
+                <ul class="dts lft">
+
+                </ul>
+                <ul class="dts lft">
+                    <li><span>萌宠课堂</span></li>
+                    <volist name="pet" id="vo">
+                        <li><a href="{:U('Index/Pet/index',array('id'=>$vo['id']))}">
+                            {$vo.title}
+                        </a></li>
+                    </volist>
+
+                </ul>
+                <ul class="dts lft">
+                    <li><span>趣事和知道</span></li>
+                    <volist name="message" id="vo">
+                        <li><a href="{:U('Index/message/info',array('id'=>$vo['id']))}">
+                            {$vo.title}
+                        </a></li>
+                    </volist>
+                </ul>
+                <ul class="dts lft last">
+                    <li><span>萌宠认领</span></li>
+                    <volist name="department" id="vo">
+                    <li><a href="{:U('Index/Department/index',array('id'=>$vo['id']))}">
+                        {$vo.title}
+                    </a></li>
+                </volist>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+<include file="Public/_footer" />

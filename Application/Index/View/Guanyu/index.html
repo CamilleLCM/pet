@@ -1,0 +1,17 @@
+<include file="Public/_header" />
+
+<section>
+    <div class="mid_container">
+        <div class="about_cont">
+            <div class="about_cont_rgt lft">
+                <h2>{$result.title}</h2>
+                </br></br>
+               <font style="font-size:19px"><php>
+                    echo htmlspecialchars_decode($result['content']);
+               </php></font>
+            </div><div class="clear"></div>
+        </div>
+    </div>
+</section>
+
+<include file="Public/_footer" />

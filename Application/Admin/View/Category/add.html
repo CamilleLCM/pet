@@ -1,0 +1,44 @@
+<include file="Public:header"/>
+
+    <div class="container-fluid">
+        
+        <div class="row-fluid">
+            <include file="Public:left"/>
+        <div class="span9">
+            <h1 class="page-title">添加分类</h1>
+<div class="btn-toolbar">
+    
+  <div class="btn-group">
+  </div>
+</div>
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#" data-toggle="tab">添加</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="home">
+    <form id="subform" action="{:U('Admin/Category/add_do')}" method="post">
+        <label>名称：</label>
+        <input type="text" value="" name='title'/>
+
+       <label></label>
+      <button class="btn btn-primary" onclick="document.getElementById('subform').submit();return false"><i class="icon-save"></i> 添加</button>
+    </form>
+      </div>
+  </div>
+
+</div>
+
+        </div>
+    </div>
+    
+
+    <footer>
+        <hr>
+        <p>&copy; 2018 Online Media Organizor</a></p>
+    </footer>
+
+  </body>
+</html>
+
+

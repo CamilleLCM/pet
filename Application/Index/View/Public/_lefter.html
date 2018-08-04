@@ -1,0 +1,24 @@
+
+    <div class="container-fluid">
+        
+        <div class="row-fluid">
+            <div class="span3">
+            	<div class="sidebar-nav">
+            	
+            	<volist name="menu" id="vo">
+            	
+            	<div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu"><i class="icon-dashboard"></i>{$vo.name}</div>
+                  
+                    <ul id="dashboard-menu" class="nav nav-list collapse in">
+                     <volist name="vo.sub" id="vo1">
+                        <li><a href="{:U($vo1['href'])}">{$vo1.name}</a></li>
+                        </volist>
+                    </ul>
+            		
+            	</volist>
+                  
+            </div>
+        </div>
+        <div class="span9">
+            <script type="text/javascript" src="Public/lib/jqplot/jquery.jqplot.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="Public/javascripts/graphDemo.js"></script>

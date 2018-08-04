@@ -1,0 +1,53 @@
+<include file="Public:header"/>
+
+<div class="container-fluid">
+
+    <div class="row-fluid">
+        <include file="Public:left"/>
+        <div class="span9">
+            <h1 class="page-title">知道和趣事审核</h1>
+            <div class="btn-toolbar">
+
+                <div class="btn-group">
+                </div>
+            </div>
+            <div class="well">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#" data-toggle="tab">内容</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane active in" id="home">
+                        <label style="font-size: 20px">标题： {$result['title']}</label>
+                        </br>
+                        <label style="font-size: 20px">图片：</label>
+                        <img alt="" width="200" src="Public/Uploads/{$result.img}">
+                        </br></br>
+                        <label style="font-size: 20px">所属分类：{$result['fenlei']}</label>
+                        <label style="font-size: 20px">内容简介：</label>
+                        <label style="font-size: 15px;">{$result['content']}</label>
+                        <label></label>
+                        </br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        <button class="btn btn-primary" onclick="window.location.href='{:U(\'Admin/Message/examine_do\',array(\'id\'=>$result[\'id\']))}'">
+                            <i class="icon-save"></i> 通过审核</button>&emsp;
+                        <button class="btn btn-danger" onclick="window.location.href='{:U(\'Admin/Message/examine_do\',array(\'id\'=>$result[\'id\'],\'type\'=>\'no\'))}'">
+                            <i class="icon-save"></i> 不通过审核</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer>
+        <hr>
+        <p>&copy; 2018 Online Media Organizor</a></p>
+    </footer>
+
+
+    </body>
+    </html>
+
+

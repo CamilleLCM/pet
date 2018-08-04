@@ -1,0 +1,56 @@
+<include file="Public/_header" />
+<link rel="stylesheet" href="Public/index/stylesheets/blog.css">
+<style>
+	.pagination li{
+		width: 10px;
+		float: left;
+		margin-left: 25px;
+	}
+	.pagination .current{
+		padding-left: 12px;
+	}
+</style>
+
+<script>
+	function subForm()
+	{
+		$("#form1").submit();
+	}
+</script>
+
+
+<section>
+	<div class="mid_container">
+		<div class="blog_main">
+			<div class="blog_lft lft">
+
+				<volist name="result" id="vo">
+					<div class="post_main lft">
+						<div class="post lft">
+							<h3>{$vo.title}</h3>
+							<span class="common_bg lft">{$vo['ctime']|date="Y-m-d",###}</span>
+						</div>
+						<div class="post_cont lft">
+							<img src="Public/Uploads/{$vo.img}" width="100%" alt="">
+							姓名：{$vo['title']}<br><span>编号：{$vo['num']}</span>
+								<!--<br><span>专业：{$vo['major']}</span>-->
+							<br>
+							介绍：
+							<php>
+								echo htmlspecialchars_decode($vo['content']);
+							</php>
+						</div>
+					</div>
+				</volist>
+				<div class="wrapper lft">
+					{$pagehtml}
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="top_btn rgt"><a class="backtop" href="#">Back to Top</a></div><div class="clear"></div>
+	</div>
+</section>
+
+
+<include file="Public/_footer" />

@@ -1,0 +1,39 @@
+<include file="Public/_header" />
+
+<section>
+    <div class="mid_container">
+        <div class="blog_main">
+            <div class="blog_lft lft">
+                <div class="post_main lft">
+                    <div class="contact_contlft lft">
+                    <h3>添加宠物认领</h3><div class="clear"></div><br>
+                        <ul class="contact">
+                            <form id="subform" action="{:U('Index/Department/add_do')}" method="post" enctype="multipart/form-data" >
+                                <li class="lft"><label>标题：</label><br />
+                                    <input type="text" id="realname" name="title" class="con_txtbx" /></li>
+                                <div class="clear"></div><br>
+                                <li class="lft"><label>宠物图片：</label><br />
+                                    <input type="file" id="img" name="img" class="con_txtbx" /></li>
+                                <div class="clear"></div><br>
+
+                                <li class="lft"><label>宠物简介：</label><br />
+                                    <textarea name="content" style="width: 930px; height: 256px; margin: 0px;" class="con_txtbx"></textarea> </li>
+                                <div class="clear"></div>
+
+                                <div class="clear"></div>
+                                <li class="last lft"><input type="submit" value="添加" class="submit_btn" /></li>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        <div class="top_btn rgt"><a class="backtop" href="#">Back to Top</a></div><div class="clear"></div>
+    </div>
+</section>
+
+
+
+<include file="Public/_footer" />

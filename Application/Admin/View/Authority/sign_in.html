@@ -1,0 +1,52 @@
+<include file="Public:header"/>
+
+<script>
+
+    function change(){
+        var date = new Date();
+        var time = date.getTime();
+        var url = "{:U('Admin/Authority/getAuthcode')}";
+        url += "&t="+time;
+
+        $('#verifyimg').attr('src',url);
+    }
+
+</script>
+    <div class="container-fluid">
+        
+        <div class="row-fluid">
+    <div class="dialog span4">
+        <div class="block">
+            <div class="block-heading">后台登录</div>
+            <div class="block-body">
+                <form id="subform" action="index.php?m=Admin&c=Authority&a=doLogin" method="post">
+                    <label>用户名</label>
+                    <input type="text"  class="span12" name="name" id="name">
+                    <label>密码</label>
+                    <input type="password" class="span12" name="pwd" id="pwd">
+
+                    <label>验证码</label>
+                    <input type="text" class="span12" name="verify" id="verify">
+                    <a href="javascript:void(0);" onclick="change()" style="margin-left:51px;"><img src="{:U('Admin/Authority/getAuthcode')}" id="verifyimg" alt="换一张" style="width:130px; height:40px;" /></a>
+                    <a href="javascript:void(0)" class="btn btn-primary pull-right" onclick="document.getElementById('subform').submit();return false">
+                   	 登录                		                   		
+                    </a>
+                    <!--<label class="remember-me"><input type="checkbox"> Remember me</label>-->
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    
+
+  </body>
+</html>
+
+

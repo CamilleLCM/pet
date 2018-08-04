@@ -1,0 +1,66 @@
+<include file="Public:header"/>
+
+    <div class="container-fluid">
+        
+        <div class="row-fluid">
+            <include file="Public:left"/>
+        <div class="span9">
+            <h1 class="page-title">修改用户</h1>
+<div class="btn-toolbar">
+    
+  <div class="btn-group">
+  </div>
+</div>
+<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#" data-toggle="tab">编辑</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="home">
+    <form id="subform" action="index.php?m=Admin&c=User&a=edit_do&uid={$user['uid']}" enctype="multipart/form-data" method="post">
+        <label>用户名：</label>
+        <input type="text" value="{$user['name']}" readonly="readonly"/>
+        <label>图片：</label>
+        <img alt="" width="80" src="Public/Uploads/{$user.img}">
+        <input type="file" name="img" id="img" >
+        <label>用户真实姓名：</label>
+         <input type="text" value="{$user['realname']}" name='realname' />
+        <label>手机号：</label>
+        <input type="text" value="{$user['mobile']}" name='mobile' />
+        <label>邮箱：</label>
+        <input type="text" value="{$user['email']}" name='email' />
+        <label>用户属性</label>
+       <select name="type" id="type">
+                                                            
+               <option value="a" >管理员</option>
+               <option value="b" <php>if($user['type']=='b'){</php> selected="selected"  <php>}</php> >普通会员</option>
+
+       </select> 
+        <label>用户状态</label>
+        <select name="status" id="status">                                                         
+              <option value="0" >正常</option>
+              <option value="1" <php>if($user['status']=='1'){</php> selected="selected"  <php>}</php>>锁定</option>
+              <option value="3" <php>if($user['status']=='3'){</php> selected="selected"  <php>}</php>>删除</option>
+      </select>
+       <label></label>
+      <button class="btn btn-primary" onclick="document.getElementById('subform').submit();return false"><i class="icon-save"></i> 修改</button>
+    </form>
+      </div>
+  </div>
+
+</div>
+
+        </div>
+    </div>
+    
+
+    <footer>
+        <hr>
+        <p>&copy; 2018 Online Media Organizor</a></p>
+    </footer>
+ 
+
+  </body>
+</html>
+
+
